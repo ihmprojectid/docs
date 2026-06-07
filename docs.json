@@ -96,6 +96,10 @@
       {
         "label": "Support",
         "href": "mailto:support@daekan.app"
+      },
+      {
+        "href": "https://daekan.app",
+        "label": "Daekan.app"
       }
     ],
     "primary": {
