@@ -48,7 +48,8 @@
               "ai-tools/windsurf"
             ]
           }
-        ]
+        ],
+        "icon": "olive-branch"
       },
       {
         "tab": "API reference",
@@ -101,10 +102,6 @@
       {
         "label": "Support",
         "href": "mailto:support@daekan.app"
-      },
-      {
-        "href": "https://daekan.app",
-        "label": "Daekan.app"
       }
     ],
     "primary": {
