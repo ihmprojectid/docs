@@ -68,7 +68,12 @@
               "api-reference/endpoint/webhook"
             ]
           }
-        ]
+        ],
+        "icon": "code"
+      },
+      {
+        "tab": "Blog",
+        "icon": "newspaper"
       }
     ],
     "global": {
