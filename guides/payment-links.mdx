@@ -1,0 +1,44 @@
+---
+title: "Payment Links"
+description: "Gunakan payment link untuk menerima pembayaran cepat tanpa setup checkout yang rumit."
+---
+
+## Use case yang paling cocok
+
+Payment link cocok untuk:
+
+- jasa dengan harga tetap
+- custom order dengan nominal khusus
+- pre-order
+- invoice manual
+- konsultasi atau booking
+
+## Komponen penting payment link
+
+<AccordionGroup>
+  <Accordion title="Judul yang jelas">
+    Nama link harus langsung menjelaskan apa yang dibayar, misalnya `Audit Funnel 90 Menit` atau `Pre-order Batch 01`.
+  </Accordion>
+  <Accordion title="Nilai transaksi">
+    Pastikan nominal final konsisten dengan promo, fee, atau kebijakan cicilan jika ada.
+  </Accordion>
+  <Accordion title="Success URL">
+    Arahkan pelanggan ke halaman pasca bayar yang memberi instruksi lanjut, bukan sekadar ucapan terima kasih.
+  </Accordion>
+  <Accordion title="Metadata">
+    Simpan informasi seperti campaign, sales owner, SKU, atau deadline agar order mudah ditindaklanjuti.
+  </Accordion>
+</AccordionGroup>
+
+## Praktik yang direkomendasikan
+
+<Checklist>
+  <Check>Gunakan satu payment link per offer utama agar tracking lebih bersih</Check>
+  <Check>Tambahkan masa berlaku bila link hanya relevan untuk periode tertentu</Check>
+  <Check>Pastikan customer menerima konfirmasi setelah payment success</Check>
+  <Check>Review link yang sering expired atau abandoned untuk melihat friction</Check>
+</Checklist>
+
+## Kapan harus pindah ke API?
+
+Jika tim Anda mulai membutuhkan pembuatan link secara dinamis dari CRM, chatbot, atau sistem invoice internal, gunakan endpoint [Create Payment Link](/api-reference/endpoint/create).

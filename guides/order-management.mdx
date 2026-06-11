@@ -1,0 +1,56 @@
+---
+title: "Order Management"
+description: "Kelola status order, suspicious order, dan abandoned checkout dengan alur yang mudah diaudit."
+---
+
+## Kenapa order management harus rapi?
+
+Saat order tumbuh, masalah paling mahal biasanya bukan traffic, tetapi order yang hilang, follow-up yang lambat, dan status yang tidak sinkron antar tim. Daekan membantu mengurangi titik-titik chaos itu.
+
+## Status order yang umum
+
+| Status | Kapan dipakai | Tindakan tim |
+| --- | --- | --- |
+| `pending` | Checkout dibuat, pembayaran belum selesai | Pantau jatuh tempo dan follow-up bila perlu |
+| `paid` | Pembayaran berhasil diverifikasi | Lanjutkan fulfillment atau pengiriman file |
+| `processing` | Order sedang diproses internal | Pastikan owner atau CS jelas |
+| `completed` | Produk/jasa sudah selesai dikirim | Tutup order dan gunakan untuk analitik |
+| `cancelled` | Order batal atau kedaluwarsa | Arsipkan dengan alasan pembatalan |
+
+## Suspicious order
+
+Flag suspicious membantu tim memprioritaskan review manual, misalnya ketika:
+
+- nominal tidak wajar dibanding pola order biasa
+- identitas customer tidak konsisten
+- order berulang muncul dalam jeda sangat singkat
+- sumber traffic terlihat anomali
+
+<Warning>
+  Suspicious order bukan berarti fraud pasti. Gunakan sebagai sinyal review, bukan keputusan otomatis tanpa verifikasi.
+</Warning>
+
+## Abandoned checkout
+
+Abandoned checkout biasanya muncul ketika pelanggan sudah berniat beli tetapi berhenti sebelum bayar. Praktik yang disarankan:
+
+<Steps>
+  <Step title="Identifikasi channel asal">
+    Bedakan abandoned checkout dari payment link, landing page, atau digital checkout supaya follow-up tidak generik.
+  </Step>
+  <Step title="Pastikan friction point">
+    Cek apakah hambatannya ada di nominal, metode pembayaran, copy halaman, atau trust issue.
+  </Step>
+  <Step title="Buat follow-up singkat">
+    Gunakan reminder yang jelas, relevan, dan tidak spam.
+  </Step>
+</Steps>
+
+## KPI minimum yang perlu dipantau
+
+<Checklist>
+  <Check>Jumlah order masuk per channel</Check>
+  <Check>Conversion dari checkout ke paid</Check>
+  <Check>Rasio order suspicious terhadap order paid</Check>
+  <Check>Waktu rata-rata dari paid ke completed</Check>
+</Checklist>

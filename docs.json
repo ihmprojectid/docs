@@ -14,57 +14,57 @@
   "navigation": {
     "tabs": [
       {
-        "tab": "Guides",
+        "tab": "Guide",
         "groups": [
           {
-            "group": "Getting started",
+            "group": "Mulai di sini",
             "pages": [
               "index",
               "quickstart",
+              "guides/platform-overview",
+              "guides/order-management"
+            ]
+          },
+          {
+            "group": "Penjualan & operasional",
+            "pages": [
+              "guides/payment-links",
+              "guides/digital-products",
+              "guides/team-management"
+            ]
+          },
+          {
+            "group": "Growth & tracking",
+            "pages": [
+              "guides/capi-integration",
+              "guides/troubleshooting"
+            ]
+          },
+          {
+            "group": "Dokumentasi internal",
+            "pages": [
               "development"
-            ]
-          },
-          {
-            "group": "Customization",
-            "pages": [
-              "essentials/settings",
-              "essentials/navigation"
-            ]
-          },
-          {
-            "group": "Writing content",
-            "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
-            ]
-          },
-          {
-            "group": "AI tools",
-            "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
             ]
           }
         ],
         "icon": "olive-branch"
       },
       {
-        "tab": "API reference",
+        "tab": "API Reference",
         "groups": [
           {
-            "group": "API documentation",
+            "group": "Dasar",
             "pages": [
-              "api-reference/introduction"
+              "api-reference/introduction",
+              "api-reference/authentication"
             ]
           },
           {
-            "group": "Endpoint examples",
+            "group": "Core endpoints",
             "pages": [
               "api-reference/endpoint/get",
               "api-reference/endpoint/create",
+              "api-reference/endpoint/product",
               "api-reference/endpoint/delete",
               "api-reference/endpoint/webhook"
             ]
@@ -74,20 +74,30 @@
       },
       {
         "tab": "Blog",
+        "groups": [
+          {
+            "group": "Artikel terbaru",
+            "pages": [
+              "blog/building-smart-order-ops",
+              "blog/reducing-lost-checkouts",
+              "blog/capi-for-performance-marketing"
+            ]
+          }
+        ],
         "icon": "newspaper"
       }
     ],
     "global": {
       "anchors": [
         {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
+          "anchor": "Website",
+          "href": "https://daekan.app",
           "icon": "book-open-cover"
         },
         {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
+          "anchor": "Support",
+          "href": "mailto:support@daekan.app",
+          "icon": "life-ring"
         }
       ]
     }
@@ -95,7 +105,7 @@
   "logo": {
     "light": "/images/daekan-app-hor.png",
     "dark": "/images/DAEKANPUTIHLOgo.png",
-    "href": "https://daekan.id"
+    "href": "https://daekan.app"
   },
   "navbar": {
     "links": [
@@ -106,21 +116,21 @@
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "label": "Buka Daekan",
+      "href": "https://daekan.app"
     }
   },
   "contextual": {
     "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
+      "copy",
+      "view",
+      "chatgpt",
+      "claude",
+      "perplexity",
+      "mcp",
+      "cursor",
+      "vscode"
+    ]
   },
   "icons": {
     "library": "fontawesome"

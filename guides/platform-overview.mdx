@@ -1,0 +1,55 @@
+---
+title: "Platform Overview"
+description: "Gambaran menyeluruh tentang modul inti Daekan dan bagaimana modul-modul itu saling terhubung."
+---
+
+## Daekan dalam satu alur
+
+Daekan menggabungkan order intake, pembayaran, pengiriman produk digital, dan tracking performa dalam satu sistem operasional. Tujuannya sederhana: mempercepat penjualan tanpa membuat tim kewalahan di belakang layar.
+
+<Frame>
+  <img src="/images/hero-dark.png" alt="Tampilan dashboard Daekan" style={{ borderRadius: '0.75rem' }} />
+</Frame>
+
+## Modul inti
+
+<CardGroup cols={2}>
+  <Card title="Order Management" icon="box">
+    Tempat semua order masuk, diurutkan, diberi status, dan dipantau oleh tim.
+  </Card>
+  <Card title="Payment Links" icon="link">
+    Cara tercepat menerima pembayaran untuk jasa, pre-order, custom order, dan invoice.
+  </Card>
+  <Card title="Digital Products" icon="file">
+    Menjual file digital dengan akses otomatis setelah pembayaran berhasil.
+  </Card>
+  <Card title="CAPI & Tracking" icon="chart-line">
+    Menyinkronkan event penjualan ke platform iklan untuk optimasi performa.
+  </Card>
+</CardGroup>
+
+## Kapan memakai fitur yang mana?
+
+<AccordionGroup>
+  <Accordion title="Jika Anda menjual jasa">
+    Mulai dari payment link. Simpan metadata order supaya tim tahu paket, deadline, atau requirement pelanggan.
+  </Accordion>
+  <Accordion title="Jika Anda menjual e-book, template, atau aset digital">
+    Gunakan digital product agar file dikirim otomatis setelah pembayaran dan akses bisa dibatasi.
+  </Accordion>
+  <Accordion title="Jika Anda menjalankan iklan berbayar">
+    Aktifkan CAPI setelah checkout flow stabil. Data order yang rapi memberi sinyal yang lebih berguna ke Meta Ads.
+  </Accordion>
+  <Accordion title="Jika ada banyak operator atau CS">
+    Atur peran tim sejak awal supaya perubahan status order, follow-up, dan refund lebih terkendali.
+  </Accordion>
+</AccordionGroup>
+
+## Prinsip implementasi yang disarankan
+
+<Checklist>
+  <Check>Gunakan satu sumber kebenaran untuk status order</Check>
+  <Check>Minimalkan handoff manual antara tim sales, CS, dan finance</Check>
+  <Check>Simpan metadata order yang cukup untuk analitik dan follow-up</Check>
+  <Check>Aktifkan tracking hanya setelah flow order benar-benar tervalidasi</Check>
+</Checklist>

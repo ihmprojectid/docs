@@ -1,0 +1,34 @@
+---
+title: "Team Management"
+description: "Atur peran tim agar operasional order, follow-up, dan tracking berjalan tanpa saling tumpang tindih."
+---
+
+## Masalah umum saat tim mulai bertambah
+
+Begitu ada lebih dari satu operator, masalah biasanya muncul di tiga area:
+
+- tidak jelas siapa pemilik order
+- status diubah tanpa konteks
+- tim marketing, CS, dan finance membaca data yang berbeda
+
+## Rekomendasi pembagian peran
+
+| Peran | Fokus | Akses minimum |
+| --- | --- | --- |
+| Admin | Setup store dan konfigurasi | Semua modul inti |
+| Sales/CS | Follow-up order dan customer | Order, payment link, catatan customer |
+| Finance | Validasi pembayaran dan refund | Transaksi dan status pembayaran |
+| Marketing | Analitik dan campaign attribution | Dashboard, tracking, campaign metadata |
+
+## Kebiasaan yang sebaiknya dibentuk
+
+<Checklist>
+  <Check>Setiap order harus punya owner saat masuk tahap processing</Check>
+  <Check>Alasan pembatalan dicatat, bukan hanya mengubah status</Check>
+  <Check>Gunakan naming convention yang konsisten untuk campaign dan payment link</Check>
+  <Check>Review order suspicious secara berkala, bukan saat masalah sudah membesar</Check>
+</Checklist>
+
+## Kapan perlu automasi?
+
+Automasi paling berguna ketika volume order sudah stabil dan bottleneck-nya jelas. Jangan mengotomasi proses yang definisinya sendiri masih berubah-ubah.

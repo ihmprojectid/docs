@@ -1,0 +1,11 @@
+{
+  "name": "daekan-docs",
+  "private": true,
+  "scripts": {
+    "dev": "mintlify dev",
+    "check:links": "mintlify broken-links"
+  },
+  "devDependencies": {
+    "mintlify": "^4.2.31"
+  }
+}

@@ -1,8 +1,8 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "title": "OpenAPI Plant Store",
-    "description": "A sample API that uses a plant store as an example to demonstrate features in the OpenAPI specification",
+    "title": "Daekan Public API",
+    "description": "API untuk smart order management, payment link, digital products, dan payment webhook.",
     "license": {
       "name": "MIT"
     },
@@ -10,7 +10,7 @@
   },
   "servers": [
     {
-      "url": "http://sandbox.mintlify.com"
+      "url": "https://api.daekan.app/v1"
     }
   ],
   "security": [
@@ -19,72 +19,70 @@
     }
   ],
   "paths": {
-    "/plants": {
+    "/orders": {
       "get": {
-        "description": "Returns all plants from the system that the user has access to",
+        "summary": "List orders",
+        "description": "Mengambil daftar order yang bisa difilter berdasarkan status, periode, source, dan flag suspicious.",
         "parameters": [
           {
-            "name": "limit",
+            "name": "page",
             "in": "query",
-            "description": "The maximum number of results to return",
+            "description": "Nomor halaman",
             "schema": {
               "type": "integer",
               "format": "int32"
+            }
+          },
+          {
+            "name": "perPage",
+            "in": "query",
+            "description": "Jumlah item per halaman",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 20
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "description": "Filter status order",
+            "schema": {
+              "type": "string",
+              "enum": ["pending", "paid", "processing", "completed", "cancelled"]
+            }
+          },
+          {
+            "name": "source",
+            "in": "query",
+            "description": "Sumber order",
+            "schema": {
+              "type": "string",
+              "enum": ["payment_link", "digital_product", "landing_page", "manual"]
+            }
+          },
+          {
+            "name": "suspicious",
+            "in": "query",
+            "description": "Filter suspicious order",
+            "schema": {
+              "type": "boolean"
             }
           }
         ],
         "responses": {
           "200": {
-            "description": "Plant response",
+            "description": "Daftar order",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Plant"
-                  }
+                  "$ref": "#/components/schemas/OrderListResponse"
                 }
               }
             }
           },
           "400": {
-            "description": "Unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "description": "Creates a new plant in the store",
-        "requestBody": {
-          "description": "Plant to add to the store",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/NewPlant"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "plant response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Plant"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "unexpected error",
+            "description": "Request tidak valid",
             "content": {
               "application/json": {
                 "schema": {
@@ -96,28 +94,106 @@
         }
       }
     },
-    "/plants/{id}": {
+    "/payment-links": {
+      "post": {
+        "summary": "Create payment link",
+        "description": "Membuat payment link baru untuk jasa, custom order, invoice, atau penagihan langsung.",
+        "requestBody": {
+          "description": "Payload payment link",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePaymentLinkRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Payment link berhasil dibuat",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaymentLink"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validasi bisnis gagal",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/products/digital": {
+      "post": {
+        "summary": "Create digital product",
+        "description": "Mendaftarkan produk digital baru lengkap dengan file delivery, harga, dan akses pasca pembayaran.",
+        "requestBody": {
+          "description": "Payload produk digital",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateDigitalProductRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Produk digital berhasil dibuat",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DigitalProduct"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validasi gagal",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/orders/{orderId}": {
       "delete": {
-        "description": "Deletes a single plant based on the ID supplied",
+        "summary": "Cancel order",
+        "description": "Membatalkan satu order berdasarkan ID, selama statusnya masih bisa dibatalkan.",
         "parameters": [
           {
-            "name": "id",
+            "name": "orderId",
             "in": "path",
-            "description": "ID of plant to delete",
+            "description": "ID order yang akan dibatalkan",
             "required": true,
             "schema": {
-              "type": "integer",
-              "format": "int64"
+              "type": "string"
             }
           }
         ],
         "responses": {
           "204": {
-            "description": "Plant deleted",
+            "description": "Order dibatalkan",
             "content": {}
           },
           "400": {
-            "description": "unexpected error",
+            "description": "Request tidak valid",
             "content": {
               "application/json": {
                 "schema": {
@@ -131,22 +207,23 @@
     }
   },
   "webhooks": {
-    "/plant/webhook": {
+    "/webhooks/payments": {
       "post": {
-        "description": "Information about a new plant added to the store",
+        "summary": "Payment status webhook",
+        "description": "Event webhook yang dikirim Daekan ketika status pembayaran berubah atau order dinyatakan berhasil.",
         "requestBody": {
-          "description": "Plant added to the store",
+          "description": "Payload event pembayaran",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewPlant"
+                "$ref": "#/components/schemas/PaymentWebhookEvent"
               }
             }
           }
         },
         "responses": {
           "200": {
-            "description": "Return a 200 status to indicate that the data was received successfully"
+            "description": "Kembalikan status 200 untuk menandakan event diterima"
           }
         }
       }
@@ -154,47 +231,241 @@
   },
   "components": {
     "schemas": {
-      "Plant": {
-        "required": [
-          "name"
-        ],
+      "Order": {
+        "required": ["id", "status", "amount", "currency"],
+        "type": "object",
+        "properties": {
+          "id": {
+            "description": "ID unik order",
+            "type": "string"
+          },
+          "status": {
+            "description": "Status order",
+            "type": "string",
+            "enum": ["pending", "paid", "processing", "completed", "cancelled"]
+          },
+          "source": {
+            "description": "Sumber order",
+            "type": "string"
+          },
+          "amount": {
+            "description": "Nilai transaksi",
+            "type": "number"
+          },
+          "currency": {
+            "description": "Kode mata uang",
+            "type": "string",
+            "example": "IDR"
+          },
+          "customer": {
+            "$ref": "#/components/schemas/Customer"
+          },
+          "suspicious": {
+            "description": "Indikator order mencurigakan",
+            "type": "boolean"
+          },
+          "createdAt": {
+            "description": "Waktu order dibuat",
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "OrderListResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Order"
+            }
+          },
+          "meta": {
+            "type": "object",
+            "properties": {
+              "page": {
+                "type": "integer"
+              },
+              "perPage": {
+                "type": "integer"
+              },
+              "total": {
+                "type": "integer"
+              }
+            }
+          }
+        }
+      },
+      "CreatePaymentLinkRequest": {
+        "required": ["title", "amount", "currency"],
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "amount": {
+            "type": "number"
+          },
+          "currency": {
+            "type": "string",
+            "example": "IDR"
+          },
+          "successUrl": {
+            "type": "string",
+            "format": "uri"
+          },
+          "expiresAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "customer": {
+            "$ref": "#/components/schemas/Customer"
+          },
+          "metadata": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "PaymentLink": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "checkoutUrl": {
+            "type": "string",
+            "format": "uri"
+          },
+          "status": {
+            "type": "string",
+            "enum": ["active", "expired", "archived"]
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "CreateDigitalProductRequest": {
+        "required": ["name", "price", "files"],
         "type": "object",
         "properties": {
           "name": {
-            "description": "The name of the plant",
             "type": "string"
           },
-          "tag": {
-            "description": "Tag to specify the type",
+          "price": {
+            "type": "number"
+          },
+          "currency": {
+            "type": "string",
+            "example": "IDR"
+          },
+          "description": {
+            "type": "string"
+          },
+          "files": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DigitalFile"
+            }
+          },
+          "downloadWindowHours": {
+            "type": "integer"
+          }
+        }
+      },
+      "DigitalProduct": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "price": {
+            "type": "number"
+          },
+          "currency": {
+            "type": "string"
+          },
+          "files": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DigitalFile"
+            }
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "DigitalFile": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          }
+        }
+      },
+      "Customer": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "phone": {
             "type": "string"
           }
         }
       },
-      "NewPlant": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/Plant"
+      "PaymentWebhookEvent": {
+        "type": "object",
+        "properties": {
+          "event": {
+            "type": "string",
+            "enum": ["payment.succeeded", "payment.failed", "payment.expired"]
           },
-          {
-            "required": [
-              "id"
-            ],
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "data": {
             "type": "object",
             "properties": {
-              "id": {
-                "description": "Identification number of the plant",
-                "type": "integer",
-                "format": "int64"
+              "orderId": {
+                "type": "string"
+              },
+              "paymentId": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "amount": {
+                "type": "number"
               }
             }
           }
-        ]
+        }
       },
       "Error": {
-        "required": [
-          "error",
-          "message"
-        ],
+        "required": ["error", "message"],
         "type": "object",
         "properties": {
           "error": {

@@ -1,0 +1,49 @@
+---
+title: "CAPI Integration"
+description: "Hubungkan data order Daekan ke Meta Ads agar tracking conversion lebih akurat dan siap dipakai optimasi."
+---
+
+## Kenapa CAPI penting?
+
+Pixel browser-side saja sering tidak cukup, terutama ketika ada batasan tracking di browser atau perangkat. CAPI menambah layer server-side supaya event pembelian dan lead lebih konsisten diterima platform iklan.
+
+## Data minimum yang harus siap
+
+<Checklist>
+  <Check>Order dan payment status tercatat rapi</Check>
+  <Check>Value transaksi konsisten</Check>
+  <Check>Timestamp event akurat</Check>
+  <Check>Identitas customer dikirim sesuai kebijakan privasi yang berlaku</Check>
+</Checklist>
+
+## Alur integrasi yang direkomendasikan
+
+<Steps>
+  <Step title="Rapikan event sumber">
+    Pastikan event checkout dibuat, payment success, dan order complete punya definisi yang jelas.
+  </Step>
+  <Step title="Sinkronkan event penting">
+    Minimal kirim event purchase dengan value, currency, order id, dan metadata campaign.
+  </Step>
+  <Step title="Bandingkan hasil dengan Ads Manager">
+    Cek apakah volume event dan nilai transaksi bergerak wajar dibanding data order internal.
+  </Step>
+</Steps>
+
+## Sinyal yang perlu diawasi
+
+<AccordionGroup>
+  <Accordion title="Event terlalu sedikit">
+    Biasanya ada masalah pada webhook, autentikasi, atau definisi event yang belum konsisten.
+  </Accordion>
+  <Accordion title="Value tidak sama">
+    Cek apakah nilai item, diskon, dan ongkos tambahan dipetakan dengan benar.
+  </Accordion>
+  <Accordion title="Duplicate purchase">
+    Gunakan idempotency key atau event id yang stabil agar platform iklan tidak menghitung event ganda.
+  </Accordion>
+</AccordionGroup>
+
+<Note>
+  Tracking yang akurat dimulai dari data order yang sehat. Jangan pakai CAPI untuk menutupi alur checkout yang masih berantakan.
+</Note>

@@ -1,0 +1,36 @@
+---
+title: "Authentication"
+description: "Skema autentikasi dan keamanan dasar untuk memakai API Daekan."
+---
+
+## Bearer token
+
+Semua endpoint Daekan Public API menggunakan Bearer token.
+
+```bash
+curl https://api.daekan.app/v1/orders \
+  -H "Authorization: Bearer YOUR_API_TOKEN" \
+  -H "Accept: application/json"
+```
+
+## Header yang umum dipakai
+
+| Header | Wajib | Keterangan |
+| --- | --- | --- |
+| `Authorization` | Ya | Format `Bearer YOUR_API_TOKEN` |
+| `Content-Type` | Untuk request body JSON | Gunakan `application/json` |
+| `Accept` | Disarankan | Gunakan `application/json` |
+| `Idempotency-Key` | Disarankan untuk create | Mencegah duplikasi create request |
+
+## Keamanan webhook
+
+Untuk webhook, verifikasi signature dari header request sebelum memproses event. Jangan percaya payload hanya karena endpoint Anda menerima `200`.
+
+## Praktik minimum
+
+<Checklist>
+  <Check>Simpan token di secret manager atau environment yang aman</Check>
+  <Check>Rotasi token secara berkala</Check>
+  <Check>Batasi penggunaan token per integrasi atau per service</Check>
+  <Check>Catat request yang gagal untuk audit dan retry</Check>
+</Checklist>

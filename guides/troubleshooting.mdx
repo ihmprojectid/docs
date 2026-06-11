@@ -1,0 +1,48 @@
+---
+title: "Troubleshooting"
+description: "Checklist cepat untuk masalah order, payment, digital delivery, dan tracking yang tidak sinkron."
+---
+
+## 1. Order tidak muncul
+
+Periksa hal berikut:
+
+- apakah checkout benar-benar dibuat
+- apakah request create order atau create payment link sukses
+- apakah filter dashboard menyembunyikan status tertentu
+
+## 2. Pembayaran sukses tapi status order belum berubah
+
+Biasanya sumber masalah ada di webhook atau verifikasi pembayaran.
+
+<Checklist>
+  <Check>Endpoint webhook aktif dan bisa diakses</Check>
+  <Check>Signature webhook diverifikasi dengan benar</Check>
+  <Check>Order id yang diterima cocok dengan order di sistem internal</Check>
+</Checklist>
+
+## 3. File digital tidak terkirim
+
+Periksa tiga area:
+
+- file benar-benar terhubung ke produk
+- rule akses download tidak langsung kadaluwarsa
+- halaman sukses atau email delivery tidak mengarah ke link yang salah
+
+## 4. Data CAPI tidak sesuai Ads Manager
+
+<AccordionGroup>
+  <Accordion title="Event purchase tidak masuk">
+    Cek apakah payment success memicu event yang benar dan token integrasi masih valid.
+  </Accordion>
+  <Accordion title="ROAS terlihat janggal">
+    Pastikan value transaksi yang dikirim adalah net amount yang memang ingin dipakai untuk reporting.
+  </Accordion>
+  <Accordion title="Attribution terasa tidak stabil">
+    Evaluasi window attribution dan konsistensi event id dari browser dan server.
+  </Accordion>
+</AccordionGroup>
+
+## 5. Kapan harus audit lewat API?
+
+Gunakan API ketika Anda perlu memastikan apakah masalah ada di UI atau di layer integrasi. Mulai dari [List Orders](/api-reference/endpoint/get) lalu cocokan dengan event webhook terakhir.

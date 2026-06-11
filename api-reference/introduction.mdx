@@ -1,33 +1,62 @@
 ---
-title: 'Introduction'
-description: 'Example section for showcasing API endpoints'
+title: "Introduction"
+description: "Referensi API Daekan untuk order, payment link, produk digital, dan webhook."
 ---
 
-<Note>
-  If you're not looking to build API reference documentation, you can delete
-  this section by removing the api-reference folder.
-</Note>
+## Ringkasan
 
-## Welcome
+API Daekan dirancang untuk integrasi operasional order, checkout, produk digital, dan sinkronisasi event pembayaran.
 
-There are two ways to build API documentation: [OpenAPI](https://mintlify.com/docs/api-playground/openapi/setup) and [MDX components](https://mintlify.com/docs/api-playground/mdx/configuration). For the starter kit, we are using the following OpenAPI specification.
+<CardGroup cols={2}>
+  <Card title="Authentication" icon="key" href="/api-reference/authentication">
+    Semua request memakai Bearer token.
+  </Card>
+  <Card title="List Orders" icon="list" href="/api-reference/endpoint/get">
+    Ambil order dengan filter status, tanggal, source, dan indikator suspicious.
+  </Card>
+  <Card title="Create Payment Link" icon="link" href="/api-reference/endpoint/create">
+    Buat link pembayaran custom untuk jasa, invoice, atau penagihan cepat.
+  </Card>
+  <Card title="Payment Webhook" icon="bolt" href="/api-reference/endpoint/webhook">
+    Terima event pembayaran dan update order di sistem Anda secara real-time.
+  </Card>
+</CardGroup>
 
-<Card
-  title="Plant Store Endpoints"
-  icon="leaf"
-  href="https://github.com/mintlify/starter/blob/main/api-reference/openapi.json"
->
-  View the OpenAPI specification file
-</Card>
+## Base URL
 
-## Authentication
-
-All API endpoints are authenticated using Bearer tokens and picked up from the specification file.
-
-```json
-"security": [
-  {
-    "bearerAuth": []
-  }
-]
+```bash
+https://api.daekan.app/v1
 ```
+
+## Resource utama
+
+<AccordionGroup>
+  <Accordion title="Orders">
+    Menyimpan status order, sumber order, data customer, nilai transaksi, dan flag suspicious order.
+  </Accordion>
+  <Accordion title="Payment Links">
+    Digunakan untuk membuat checkout link yang bisa dibagikan ke pelanggan atau dipasang di campaign.
+  </Accordion>
+  <Accordion title="Digital Products">
+    Digunakan untuk mengelola produk, file delivery, dan aturan akses download pasca pembayaran.
+  </Accordion>
+  <Accordion title="Webhooks">
+    Digunakan untuk menerima event pembayaran, order update, dan sinkronisasi sistem eksternal.
+  </Accordion>
+</AccordionGroup>
+
+## Status dan error
+
+API mengembalikan kode status HTTP standar:
+
+- `200` untuk request sukses
+- `201` untuk resource baru
+- `400` untuk payload tidak valid
+- `401` untuk token tidak valid atau tidak ada
+- `404` untuk resource tidak ditemukan
+- `422` untuk validasi bisnis gagal
+- `429` untuk rate limit
+
+<Note>
+  Simpan `Idempotency-Key` untuk operasi create yang berhubungan dengan pembayaran agar request ganda tidak membuat duplikasi transaksi.
+</Note>
