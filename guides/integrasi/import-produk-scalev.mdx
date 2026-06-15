@@ -1,0 +1,91 @@
+---
+title: "Import Produk dari Scalev"
+description: "Tutorial import produk dari platform Scalev ke Daekan secara otomatis."
+---
+
+Tutorial ini menjelaskan cara import produk dari platform Scalev ke Daekan.
+
+## Langkah 1: Buka Menu Import Produk
+
+Buka menu **Digital Download** di dashboard Daekan, lalu klik tombol **Import Produk**.
+
+<img src="/images/integrasi/01-import-produk-btn.png" alt="Tombol Import Produk di dashboard" style={{ borderRadius: '0.75rem' }} />
+
+## Langkah 2: Pilih Import dari Scalev
+
+Pada modal **Import Produk**, pilih platform **Scalev** lalu klik **Lanjut**.
+
+<img src="/images/integrasi/02-pilih-platform-scalev.png" alt="Pilih Scalev sebagai platform import" style={{ borderRadius: '0.75rem' }} />
+
+## Langkah 3: Masukkan API Key dari Scalev
+
+Masukkan **Business API Key** dari Scalev ke kolom yang tersedia, lalu klik **Ambil Daftar Produk**.
+
+<img src="/images/integrasi/03-masukan-api-key.png" alt="Form masukan API Key Scalev" style={{ borderRadius: '0.75rem' }} />
+
+<Warning>
+  API Key hanya digunakan untuk sesi import ini dan tidak disimpan di server Daekan.
+</Warning>
+
+## Mendapatkan API Key dari Scalev
+
+Jika belum punya API Key dari Scalev, ikuti langkah berikut:
+
+### 1. Buka Menu Settings
+
+Login ke dashboard Scalev, lalu klik menu **Settings** di sidebar.
+
+<img src="/images/integrasi/04-scalev-settings.png" alt="Menu Settings di sidebar Scalev" style={{ borderRadius: '0.75rem' }} />
+
+### 2. Pilih Menu Developers
+
+Di halaman Settings, pilih menu **Developers**.
+
+<img src="/images/integrasi/05-scalev-developers.png" alt="Menu Developers di Settings" style={{ borderRadius: '0.75rem' }} />
+
+### 3. Buka Tab API Keys
+
+Klik tab **API Keys** di halaman Developers.
+
+<img src="/images/integrasi/06-api-keys-tab.png" alt="Tab API Keys" style={{ borderRadius: '0.75rem' }} />
+
+### 4. Buat API Key Baru
+
+Klik tombol **+ Create API Key**.
+
+<img src="/images/integrasi/07-create-api-key-btn.png" alt="Tombol Create API Key" style={{ borderRadius: '0.75rem' }} />
+
+### 5. Isi Form Create API Key
+
+Isi form berikut:
+- **API Key Name**: isi nama API Key (contoh: `daekan`)
+- **Description**: berikan deskripsi singkat
+- **Key Type**: pilih **Secret**
+
+Lalu klik **Create**.
+
+<img src="/images/integrasi/08-create-api-key-form.png" alt="Form Create API Key" style={{ borderRadius: '0.75rem' }} />
+
+### 6. Salin API Key
+
+Setelah API Key berhasil dibuat, **salin API Key** yang muncul.
+
+<Warning>
+  Simpan API Key ini secara aman. Anda tidak akan bisa melihatnya lagi setelah menutup halaman ini.
+</Warning>
+
+<img src="/images/integrasi/09-api-key-details.png" alt="API Key Details dan tombol Copy" style={{ borderRadius: '0.75rem' }} />
+
+Kembali ke Daekan dan masukkan API Key ke form koneksi, lalu klik **Ambil Daftar Produk**.
+
+## Langkah 4: Pilih Produk
+
+Pilih produk yang ingin di-import, atau gunakan **Pilih semua** untuk mengimport semua produk sekaligus. Klik **Import Produk** untuk melanjutkan.
+
+<img src="/images/integrasi/10-pilih-produk.png" alt="Pilih produk untuk diimport" style={{ borderRadius: '0.75rem' }} />
+
+## Langkah 5: Import Selesai
+
+Jika import berhasil, akan muncul konfirmasi **Import Berhasil!**. Kamu bisa langsung mengelola dan mengedit produk tersebut dengan klik **Lihat Produk**.
+
+<img src="/images/integrasi/11-import-berhasil.png" alt="Konfirmasi import berhasil" style={{ borderRadius: '0.75rem' }} />
