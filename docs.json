@@ -14,7 +14,7 @@
   "navigation": {
     "tabs": [
       {
-        "tab": "Guide",
+        "tab": "Tutorial",
         "groups": [
           {
             "group": "Mulai di sini",
@@ -76,7 +76,8 @@
             ]
           }
         ],
-        "icon": "code"
+        "icon": "code",
+        "hidden": true
       },
       {
         "tab": "Blog",
@@ -90,7 +91,8 @@
             ]
           }
         ],
-        "icon": "newspaper"
+        "icon": "newspaper",
+        "hidden": true
       }
     ],
     "global": {
