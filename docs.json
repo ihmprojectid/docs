@@ -45,6 +45,12 @@
             "pages": [
               "development"
             ]
+          },
+          {
+            "group": "Integrasi",
+            "pages": [
+              "import-dari-scalev-id"
+            ]
           }
         ],
         "icon": "olive-branch"

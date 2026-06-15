@@ -1,0 +1,134 @@
+---
+title: "Tutorial: Cara Import Produk dari Scalev ke Daekan.app"
+---
+
+Panduan ini menjelaskan langkah-langkah untuk mengimpor produk digital dari platform **Scalev** ke [**Daekan.app**](http://Daekan.app) menggunakan **Business API Key**.
+
+## 1. Buka Menu Digital Download di Daekan
+
+Masuk ke dashboard [**Daekan.app**](http://Daekan.app), lalu buka menu:
+
+**Products → Digital Download**
+
+Setelah itu, klik tombol **Import Produk**.
+
+---
+
+## 2. Pilih Platform Scalev
+
+Pada popup **Import Produk**, pilih platform **Scalev**.
+
+Scalev digunakan untuk mengimpor produk dari akun Scalev ke Daekan menggunakan API Key.
+
+Klik **Lanjut** untuk melanjutkan proses.
+
+---
+
+## 3. Masukkan API Key Scalev
+
+Daekan akan meminta **Business API Key** dari akun Scalev.
+
+API Key ini diperlukan agar Daekan dapat mengambil daftar produk dari Scalev.
+
+> Catatan: API Key hanya digunakan untuk sesi import dan tidak disimpan di server Daekan.
+
+---
+
+# Cara Mendapatkan API Key dari Scalev
+
+## 4. Buka Settings di Dashboard Scalev
+
+Masuk ke dashboard **Scalev**, lalu buka menu:
+
+**Settings**
+
+---
+
+## 5. Pilih Menu Developers
+
+Di halaman Settings, pilih menu:
+
+**Developers**
+
+---
+
+## 6. Buka Tab API Keys
+
+Pada halaman Developers, pilih tab:
+
+**API Keys**
+
+Kemudian klik tombol:
+
+**\+ Create API Key**
+
+---
+
+## 7. Buat API Key Baru
+
+Isi data API Key sebagai berikut:
+
+**API Key Name:**\
+Contoh: `daekan`
+
+**Description:**\
+Contoh: `daekan`
+
+**Key Type:**\
+Pilih `Secret`
+
+Setelah semua data terisi, klik tombol **Create**.
+
+---
+
+## 8. Salin API Key
+
+Setelah API Key berhasil dibuat, Scalev akan menampilkan API Key.
+
+Klik **Copy** untuk menyalin API Key tersebut.
+
+> Simpan API Key dengan aman. Biasanya API Key hanya dapat dilihat satu kali setelah dibuat.
+
+---
+
+# Kembali ke Daekan
+
+## 9. Masukkan API Key ke Daekan
+
+Kembali ke halaman import produk di [**Daekan.app**](http://Daekan.app).
+
+Tempel API Key Scalev pada kolom **Business API Key**, lalu klik:
+
+**Ambil Daftar Produk**
+
+---
+
+## 10. Pilih Produk yang Ingin Diimport
+
+Setelah daftar produk muncul, pilih produk yang ingin diimport.
+
+Kamu bisa memilih produk satu per satu, atau klik **Pilih semua** untuk mengimpor semua produk.
+
+Setelah memilih produk, klik tombol:
+
+**Import Produk**
+
+---
+
+## 11. Import Berhasil
+
+Jika proses berhasil, Daekan akan menampilkan halaman **Import Berhasil**.
+
+Produk dari Scalev sudah berhasil diimport ke Daekan dan bisa langsung dikelola melalui menu produk Daekan.
+
+Klik **Lihat Produk** untuk membuka daftar produk yang sudah diimport.
+
+---
+
+## Catatan Penting
+
+Pastikan API Key Scalev memiliki akses atau scope berikut:
+
+**product:list** dan **product:read**
+
+Gunakan API Key dengan hati-hati dan jangan membagikannya kepada pihak lain.

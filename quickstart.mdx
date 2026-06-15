@@ -3,6 +3,8 @@ title: "Quickstart"
 description: "Setup dasar Daekan untuk mulai menerima order, payment, dan tracking dalam waktu singkat."
 ---
 
+
+
 ## Mulai dalam 15 menit
 
 Panduan ini ditujukan untuk tim baru yang ingin menyiapkan workspace Daekan dan menerima order pertama secepat mungkin.
@@ -31,13 +33,15 @@ Panduan ini ditujukan untuk tim baru yang ingin menyiapkan workspace Daekan dan 
 ## Rekomendasi setup awal
 
 <AccordionGroup>
-  <Accordion icon="store" title="Untuk seller produk digital">
+  <Accordion title="Untuk seller produk digital" icon="store">
     Fokus dulu ke katalog produk, file delivery, dan payment flow. Jangan terlalu banyak variasi channel di awal. Pastikan copy produk, harga, dan access policy sudah konsisten.
   </Accordion>
-  <Accordion icon="wallet" title="Untuk jasa dan custom order">
+
+  <Accordion title="Untuk jasa dan custom order" icon="wallet">
     Mulai dari payment link dengan nominal yang fleksibel, metadata order yang rapi, dan SLA follow-up internal yang jelas.
   </Accordion>
-  <Accordion icon="chart-line" title="Untuk tim performance marketing">
+
+  <Accordion title="Untuk tim performance marketing" icon="chart-line">
     Setelah alur order stabil, aktifkan [CAPI Integration](/guides/capi-integration) agar data pembelian dan lead sinkron ke platform iklan.
   </Accordion>
 </AccordionGroup>
@@ -48,12 +52,80 @@ Panduan ini ditujukan untuk tim baru yang ingin menyiapkan workspace Daekan dan 
   <Card title="Platform Overview" icon="compass" href="/guides/platform-overview">
     Pahami semua modul inti Daekan dan kapan menggunakannya.
   </Card>
+
   <Card title="Order Management" icon="box" href="/guides/order-management">
     Pelajari struktur status order, suspicious order, dan abandoned checkout.
   </Card>
+
   <Card title="API Reference" icon="code" href="/api-reference/introduction">
     Integrasikan sistem eksternal dengan endpoint Daekan.
   </Card>
+
+  <Card title="Troubleshooting" icon="wrench" href="/guides/troubleshooting">
+    Gunakan checklist ini jika order, webhook, atau tracking belum sinkron.
+  </Card>
+</CardGroup>
+
+<Note>
+  Jika Anda sedang migrasi dari workflow manual seperti spreadsheet atau chat, prioritaskan kestabilan alur order dulu sebelum menambah automasi lanjutan.
+</Note>
+
+## Mulai dalam 15 menit
+
+Panduan ini ditujukan untuk tim baru yang ingin menyiapkan workspace Daekan dan menerima order pertama secepat mungkin.
+
+<Checklist>
+  <Check>Sudah punya akun Daekan dan akses ke satu workspace</Check>
+  <Check>Sudah menentukan produk atau layanan yang ingin dijual</Check>
+  <Check>Sudah menyiapkan metode pembayaran dan halaman tujuan setelah checkout</Check>
+</Checklist>
+
+<Steps>
+  <Step title="Buat store atau workspace">
+    Masuk ke Daekan lalu buat store utama untuk brand Anda. Gunakan nama store yang mudah dikenali oleh tim CS, finance, dan marketing.
+  </Step>
+  <Step title="Pilih model penjualan">
+    Gunakan [Payment Links](/guides/payment-links) untuk jasa, custom order, dan pembayaran cepat. Gunakan [Digital Products](/guides/digital-products) bila Anda ingin mengirim file otomatis setelah pembayaran.
+  </Step>
+  <Step title="Atur halaman sukses dan notifikasi">
+    Pastikan pelanggan diarahkan ke halaman terima kasih yang jelas, dan tim internal menerima notifikasi real-time untuk order baru atau payment success.
+  </Step>
+  <Step title="Uji order pertama">
+    Lakukan transaksi simulasi. Verifikasi empat hal: order tercatat, status pembayaran berubah, produk terkirim atau CS diberi tugas, dan data siap dipakai untuk tracking.
+  </Step>
+</Steps>
+
+## Rekomendasi setup awal
+
+<AccordionGroup>
+  <Accordion title="Untuk seller produk digital" icon="store">
+    Fokus dulu ke katalog produk, file delivery, dan payment flow. Jangan terlalu banyak variasi channel di awal. Pastikan copy produk, harga, dan access policy sudah konsisten.
+  </Accordion>
+
+  <Accordion title="Untuk jasa dan custom order" icon="wallet">
+    Mulai dari payment link dengan nominal yang fleksibel, metadata order yang rapi, dan SLA follow-up internal yang jelas.
+  </Accordion>
+
+  <Accordion title="Untuk tim performance marketing" icon="chart-line">
+    Setelah alur order stabil, aktifkan [CAPI Integration](/guides/capi-integration) agar data pembelian dan lead sinkron ke platform iklan.
+  </Accordion>
+</AccordionGroup>
+
+## Setelah quickstart, lanjut ke mana?
+
+<CardGroup cols={2}>
+  <Card title="Platform Overview" icon="compass" href="/guides/platform-overview">
+    Pahami semua modul inti Daekan dan kapan menggunakannya.
+  </Card>
+
+  <Card title="Order Management" icon="box" href="/guides/order-management">
+    Pelajari struktur status order, suspicious order, dan abandoned checkout.
+  </Card>
+
+  <Card title="API Reference" icon="code" href="/api-reference/introduction">
+    Integrasikan sistem eksternal dengan endpoint Daekan.
+  </Card>
+
   <Card title="Troubleshooting" icon="wrench" href="/guides/troubleshooting">
     Gunakan checklist ini jika order, webhook, atau tracking belum sinkron.
   </Card>
