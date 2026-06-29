@@ -51,6 +51,12 @@
             "pages": [
               "import-dari-scalev-id"
             ]
+          },
+          {
+            "group": "E-Payment & Fee",
+            "pages": [
+              "biaya-transaksi"
+            ]
           }
         ],
         "icon": "olive-branch"
